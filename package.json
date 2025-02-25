@@ -1,0 +1,20 @@
+{
+  "name": "vaquero-wings",
+  "version": "1.0.0",
+  "description": "Website of the business",
+  "homepage": "https://github.com/axelquartz/vaquero-wings#readme",
+  "bugs": {
+    "url": "https://github.com/axelquartz/vaquero-wings/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axelquartz/vaquero-wings.git"
+  },
+  "license": "MIT",
+  "author": "axel",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
