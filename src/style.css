@@ -1,0 +1,38 @@
+img {
+    width: 100px;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.promos, main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    background-color: bisque;
+}
+
+.product {
+    display: flex;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 0px 16px;
+    align-items: center;
+    margin: 6px auto;
+    width: 92%;
+}
+
+.text-product {
+    margin-left: 20px;
+    width: 400px;
+}
+
+.price h4 {
+    border: solid 1px black;
+    padding: 4px 10px;
+    border-radius: 8px;
+}
