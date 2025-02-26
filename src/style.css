@@ -7,23 +7,26 @@ h1, h2 {
     text-align: center;
 }
 
-.promos, main {
+.promos, main, .sabores {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     margin: auto;
-    background-color: bisque;
+    /* background-color: bisque; */
+    align-items: center;
 }
 
 .product {
     display: flex;
+    justify-content: center;
     background-color: #f4f4f4;
     border-radius: 8px;
     padding: 0px 16px;
     align-items: center;
     margin: 6px auto;
     width: 92%;
+    gap: 4px;
 }
 
 .text-product {
@@ -35,4 +38,20 @@ h1, h2 {
     border: solid 1px black;
     padding: 4px 10px;
     border-radius: 8px;
+}
+
+label {
+    border: solid 1px black;
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.sabores label {
+    margin: 4px;
+}
+
+hr {
+    width: 80%;
+    margin: auto;
+    border: solid 1px rgb(199, 199, 199);
 }
