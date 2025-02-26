@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/style.css">
+    <script src="./src/script.js" defer></script>
     <title>Vaquero Wings</title>
 </head>
 <body>
     <nav>
+        <div class="burger-menu-bar">
+            <label for="burger-menu">Menu</label>
+        </div>
+        <div class="burger-menu">
+            <ul>
+                <li><a href="index.html">Menu</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+    </div>
+    <div class="desktop-menu">
         <ul>
             <li><a href="index.html">Menu</a></li>
             <li><a href="about.html">Acerca de</a></li>
             <li><a href="contact.html">Contacto</a></li>
         </ul>
+</div>
     </nav>
+
+
     <div class="cta">
         <button>Recoger en tienda</button>
         <button>Recibirt a domicilio</button>
@@ -111,8 +126,6 @@
                 <h4>$75.00</h4>
             </div>
         </div>
-
-        <h2>Sabores</h2>
         <div class="sabores">
             <label id="bbq">BBQ</label>
             <label id="Buffalo">Buffalo</label>

@@ -1,57 +1,178 @@
-img {
-    width: 100px;
-    border-radius: 8px;
-}
-
-h1, h2 {
-    text-align: center;
-}
-
-.promos, main, .sabores {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+body {
+    background-color: #ffffff;
+    margin: 0px;
+    padding: 0px;
     width: 100%;
-    margin: auto;
-    /* background-color: bisque; */
-    align-items: center;
+}
+@media (max-width: 768px) { /* MOBILE */
+
+    nav {
+        background-color: yellow;
+        width: 100%;
+        /* display: none; */
+    }
+
+    .desktop-menu {
+        display: none;
+    }
+    
+    .burger-menu-bar label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0px;
+        border-bottom: solid 1px black;
+        text-decoration: none;
+        list-style-type: none;
+        text-align: center;
+        width: 120px;
+        margin: auto;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .burger-menu {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0px;
+        border-bottom: solid 1px black;
+        text-decoration: none;
+        list-style-type: none;
+        text-align: center;
+        width: 100%;
+        margin: auto;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    .active {
+        display: flex;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+    }
+
+    img {
+        width: 100px;
+        border-radius: 8px;
+    }
+    
+    h1, h2 {
+        text-align: center;
+    }
+    
+    .promos, main, .sabores, .dedos-y-aros {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        background-color: yellow;
+        /* margin: auto; */
+        /* background-color: bisque; */
+        align-items: center;
+    }
+    
+    .product {
+        display: flex;
+        box-sizing: content-box;
+        justify-content: space-between;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        padding: 0px 16px;
+        align-items: center;
+        margin: 6px 4px;
+        width: 100%;
+        gap: 4px;
+    }
+    
+    .text-product {
+        margin-left: 20px;
+        width: 240px;
+    }
+    
+    .price h4 {
+        border: solid 1px black;
+        padding: 4px 10px;
+        border-radius: 8px;
+    }
+    
+    label {
+        border: solid 1px black;
+        padding: 4px 10px;
+        border-radius: 8px;
+    }
+    
+    .sabores label {
+        margin: 4px;
+    }
+    
+    hr {
+        width: 80%;
+        margin: auto;
+        border: solid 1px rgb(199, 199, 199);
+    }
+    
 }
 
-.product {
-    display: flex;
-    justify-content: center;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    padding: 0px 16px;
-    align-items: center;
-    margin: 6px auto;
-    width: 92%;
-    gap: 4px;
-}
-
-.text-product {
-    margin-left: 20px;
-    width: 400px;
-}
-
-.price h4 {
-    border: solid 1px black;
-    padding: 4px 10px;
-    border-radius: 8px;
-}
-
-label {
-    border: solid 1px black;
-    padding: 4px 10px;
-    border-radius: 8px;
-}
-
-.sabores label {
-    margin: 4px;
-}
-
-hr {
-    width: 80%;
-    margin: auto;
-    border: solid 1px rgb(199, 199, 199);
+@media (min-width: 769px) {
+    .burger-menu, .burger-menu-bar {
+        display: none;
+    }
+    img {
+        width: 100px;
+        border-radius: 8px;
+    }
+    
+    h1, h2 {
+        text-align: left;
+    }
+    
+    .promos, main, .sabores, .dedos-y-aros {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+        margin: auto;
+        /* background-color: bisque; */
+        align-items: flex-start;
+    }
+    
+    .product {
+        display: flex;
+        justify-content: flex-start;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        padding: 0px 16px;
+        align-items: center;
+        margin: 6px 0;
+        width: 480px;
+        gap: 4px;
+    }
+    
+    .text-product {
+        margin-left: 20px;
+        width: 400px;
+    }
+    
+    .price h4 {
+        border: solid 1px black;
+        padding: 4px 10px;
+        border-radius: 8px;
+    }
+    
+    label {
+        border: solid 1px black;
+        padding: 4px 10px;
+        border-radius: 8px;
+    }
+    
+    .sabores label {
+        margin: 4px;
+    }
+    
+    hr {
+        display: none;
+    }
 }
