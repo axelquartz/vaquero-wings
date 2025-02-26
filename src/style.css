@@ -4,6 +4,7 @@ body {
     margin: 0px;
     padding: 0px;
     width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 @media (max-width: 768px) { /* MOBILE */
 
@@ -19,12 +20,12 @@ body {
 
     .burger-menu-bar {
         display: flex;
-        padding: 8px 0px;
-        justify-content: center;
+        padding: 16px 4px;
+        justify-content: space-between;
         text-decoration: none;
         list-style-type: none;
         width: 100%;
-        margin: auto 0px;
+        margin: auto 8px;
         font-size: 16px;
         font-weight: 600;
     }
@@ -48,12 +49,17 @@ body {
         justify-content: center;
     }
 
+    .burger-menu-bar img {
+        width: 160px;
+        margin: 0 16px;
+    }
+
+
     .burger-menu {
         display: none;
         justify-content: center;
         align-items: center;
         padding: 8px 0px;
-        border-bottom: solid 1px rgb(255, 255, 255);
         text-decoration: none;
         list-style-type: none;
         width: 100%;
@@ -64,10 +70,33 @@ body {
     
     .active {
         display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0 16px;
+    }
+
+    nav ul {
+        text-decoration: none;
+        list-style-type: none;
+        list-style: none;
+        padding: 8px 0px;
+        margin: 0px;
+    }
+
+    nav ul li {
+        padding: 16px 0px;
+        text-decoration: none;
+        list-style-type: none;
+        width: 100%;
+        margin: auto;
+        font-size: 16px;
+        font-weight: 600;
     }
 
     nav ul li a {
         text-decoration: none;
+        color: #f4f4f4;
     }
 
     .cta {
@@ -75,8 +104,9 @@ body {
         justify-content: center;
         align-items: center;
         gap: 16px;
-        padding: 16px 0px;
-        background-color: aquamarine;
+        padding: 16px 8px;
+        background-color: #222;
+        border-top: #B89265 1px solid;
         position: fixed;
         bottom: 0px;
         width: 100%;
@@ -84,11 +114,24 @@ body {
 
     .cta button {
         border: solid 1px black;
-        padding: 6px 24px;
+        width: 240px;
+        padding: 8px 24px;
         border-radius: 8px;
     }
 
-    img {
+    .cta #whatsapp {
+        background-color: #6ed350;
+        font-weight: 600;
+        color: #111;
+    }
+
+    .cta #domicilio {
+        background-color: #B89265;
+        font-weight: 600;
+        color: #111;
+    }
+
+    .image-product img {
         width: 100px;
         border-radius: 8px;
     }
@@ -112,7 +155,7 @@ body {
         display: flex;
         box-sizing: content-box;
         justify-content: space-between;
-        background-color: #222;
+        background-color: #1a1a1a;
         border-radius: 8px;
         padding: 0px 16px;
         align-items: center;
@@ -127,25 +170,76 @@ body {
     }
     
     .price h4 {
-        border: solid 1px black;
+        color: #B89265;
+        border: solid 2px #B89265;
         padding: 4px 10px;
         border-radius: 8px;
     }
     
     label {
-        border: solid 1px black;
+        border: solid 2px rgb(255, 255, 255);
         padding: 4px 10px;
         border-radius: 8px;
     }
     
     .sabores label {
         margin: 4px;
+        font-weight: 600;
     }
-    
-    hr {
-        width: 80%;
-        margin: auto;
-        border: solid 1px rgb(199, 199, 199);
+
+    #bbq {
+        border: solid 2px #e24c4c;
+        color: #e24c4c;
+    }
+
+    #mango {
+        border: solid 2px #e2b84c;
+        color: #e2b84c;
+    }
+
+    #buffalo {
+        border: solid 2px #e2834c;
+        color: #e2834c;
+    }
+
+    #lemon {
+        border: solid 2px #88e24c;
+        color: #88e24c;
+    }
+
+    #hot {
+        border: solid 2px #d82d2d;
+        color: #d82d2d;
+    }
+
+    #ajo {
+        border: solid 2px #d8d8d8;
+        color: #d8d8d8;
+    }
+
+    #pina {
+        border: solid 2px #fdf24f;
+        color: #fdf24f;
+    }
+
+    #tamarindo {
+        border: solid 2px #ec8e21;
+        color: #ec8e21;
+    }
+
+    #hot-bbq {
+        border: solid 2px #e24c4c;
+        color: #e24c4c;
+    }
+
+    #cajun {
+        border: solid 2px #ec5f1d;    
+        color: #ec5f1d;
+    }
+
+    #extremo {
+        border: solid 2px #ffa8a8;
+        color: #ffa8a8;
     }
     
 }
