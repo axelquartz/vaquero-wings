@@ -79,6 +79,7 @@ body {
         justify-content: flex-start;
         align-items: flex-start;
         margin: 0 16px;
+        
     }
 
     nav ul {
@@ -119,8 +120,8 @@ body {
 
     .cta button {
         border: solid 1px black;
-        width: 40%;
-        padding: 8px 24px;
+        width: 100%;
+        padding: 12px 24px;
         border-radius: 8px;
     }
 
@@ -131,7 +132,7 @@ body {
     }
 
     .cta #domicilio {
-        background-color: #B89265;
+        background-color: #ff9c4c;
         font-weight: 600;
         color: #111;
     }
@@ -159,7 +160,7 @@ body {
     .disclaimer {	
         text-align: center;
         width: 100%;
-        margin: 0 0 100px 0;
+        margin: 40px 0;
     }
     
     .product {
@@ -252,7 +253,38 @@ body {
         border: solid 2px #ffa8a8;
         color: #ffa8a8;
     }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #222;
+        padding: 32px 0px;
+        margin-bottom: 80px;
+    }
     
+    .redes {
+        display: flex;
+        gap: 32px;
+    }
+
+    .redes a {
+        text-decoration: none;
+        color: #B89265;
+    }
+
+    footer h2 {
+        margin: 40px 0;
+    }
+    
+    footer button {
+        border: solid 2px #B89265;
+        background-color: #111;
+        font-weight: 600;
+        color: #B89265;
+        padding: 12px 44px;
+        border-radius: 8px;
+    }
 }
 
 @media (min-width: 769px) {
@@ -297,6 +329,11 @@ body {
     
     h1, h2 {
         text-align: left;
+        margin: 16px 16px;
+    }
+
+    h1 {
+        margin: 42px 16px;
     }
     
     .promos, main, .sabores, .dedos-y-aros {
@@ -304,9 +341,43 @@ body {
         flex-wrap: wrap;
         justify-content: flex-start;
         width: 100%;
-        margin: auto;
+        margin: auto 16px;
         /* background-color: bisque; */
         align-items: flex-start;
+    }
+
+    .redes {
+        display: flex;
+        gap: 32px;
+    }
+
+    .redes a {
+        text-decoration: none;
+        color: #B89265;
+    }
+
+    footer h2 {
+        margin: 0;
+    }
+    
+    .disclaimer, footer {	
+        text-align: left;
+        width: 100%;
+        margin: 40px 24px;
+    }
+
+    footer {
+        margin-bottom: 80px;
+    }
+
+    footer button {
+        border: solid 2px #B89265;
+        background-color: #111;
+        font-weight: 600;
+        color: #B89265;
+        padding: 12px 44px;
+        border-radius: 8px;
+        margin: 40px 0;
     }
     
     .product {
