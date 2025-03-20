@@ -287,7 +287,9 @@ body {
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 769px) { /* DESKTOP */
+
+    /*index*/
 
     .desktop-menu {
         display: flex;
@@ -512,4 +514,29 @@ body {
         font-weight: 600;
         color: #111;
     }
+
+        /*about*/
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 1080px;
+            margin: 0 auto;
+        }
+
+        .side-1, .side-2 {
+            width: 50%;
+            justify-self: center;
+            align-self: center;
+        }
+
+        .side-1 p, .side-2 p, .side-1 h1, .side-2 h1 {
+            margin: 20px 60px;
+            line-height: 1.5;
+        }
+
+        .side-2 img, .side-1 img {
+            width: 100%;
+            height: 100%;
+        }
 }
