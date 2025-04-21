@@ -1,10 +1,18 @@
 body {
     background-color: #111;
     color: #f4f4f4;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     width: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
     font-family: 'Kanit', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Make sure all elements respect the box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 /* Update any specific font-weight uses */
@@ -28,13 +36,12 @@ nav ul li, button {
     font-weight: 500;
 }
 
-/* CTA Component - Base Styles */
+/* CTA Component - Fixed Layout */
 .cta {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
-    padding: 20px max(24px, calc(100vw - 95%));
+    padding: 16px;
     background-color: rgba(17, 17, 17, 0.95);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -49,33 +56,39 @@ nav ul li, button {
     box-sizing: border-box;
 }
 
+.cta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Fix for index.html specific CTA structure */
 .cta a {
+    flex: 1;
+    max-width: 280px;
     text-decoration: none;
-    display: contents;
+    margin: 0 8px;
 }
 
 .cta button {
-    position: relative;
-    min-width: 200px;
-    max-width: 300px;
-    padding: 16px 32px;
+    width: 100%;
+    padding: 14px 24px;
     border-radius: 12px;
     border: none;
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+    white-space: nowrap;
     cursor: pointer;
     overflow: hidden;
-    white-space: nowrap;
-    text-decoration: none;
-    color: white;
 }
 
 .cta #whatsapp {
@@ -83,29 +96,39 @@ nav ul li, button {
     color: white;
 }
 
-.cta #whatsapp::before {
-    content: "📱";
-    font-size: 1.2rem;
-}
-
 .cta #domicilio {
     background: linear-gradient(135deg, #B89265 0%, #8B6B4A 100%);
     color: white;
 }
 
-.cta #domicilio::before {
-    content: "🛵";
-    font-size: 1.2rem;
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .cta {
+        padding: 12px;
+    }
+
+    .cta-container {
+        gap: 12px;
+    }
+
+    .cta a {
+        margin: 0 4px;
+    }
+
+    .cta button {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        min-width: unset;
+    }
 }
 
-/* Hover Effects */
-.cta button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.cta button:active {
-    transform: translateY(-1px);
+/* Safe area handling */
+@supports (padding: max(0px)) {
+    .cta {
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+    }
 }
 
 /* Modern focus states */
@@ -693,15 +716,6 @@ nav ul li, button {
         }
 }
 
-/* Safe area handling for modern mobile devices */
-@supports (padding: max(0px)) {
-    .cta {
-        padding-bottom: max(24px, env(safe-area-inset-bottom));
-        padding-left: max(24px, env(safe-area-inset-left));
-        padding-right: max(24px, env(safe-area-inset-right));
-    }
-}
-
 /* Disclaimer Component - Modern Design */
 .disclaimer {
     background: linear-gradient(to right, rgba(184, 146, 101, 0.1), rgba(184, 146, 101, 0.2), rgba(184, 146, 101, 0.1));
@@ -930,5 +944,135 @@ footer h2 {
 @supports (padding: max(0px)) {
     footer {
         padding-bottom: max(120px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Fix product cards layout */
+.product {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 12px;
+    align-items: center;
+    margin: 6px 8px;
+    width: calc(100% - 16px);
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.image-product {
+    flex-shrink: 0;
+    width: 100px;
+}
+
+.image-product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.text-product {
+    flex: 1;
+    min-width: 0; /* Prevent text from forcing container width */
+    padding: 0 8px;
+}
+
+.text-product h4 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+    white-space: normal; /* Allow text to wrap */
+}
+
+.text-product p {
+    margin: 0;
+    font-size: 0.9rem;
+    white-space: normal; /* Allow text to wrap */
+}
+
+.price {
+    flex-shrink: 0;
+    padding: 0 8px;
+}
+
+/* Fix container widths */
+.promos, main, .sabores, .dedos-y-aros, .antojos, .extras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 8px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Fix sabores section */
+.sabores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 8px;
+    justify-content: center;
+}
+
+.sabores label {
+    margin: 4px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+}
+
+/* Section headings */
+h1, h2 {
+    width: 100%;
+    text-align: center;
+    padding: 0 16px;
+    margin: 24px 0;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+    .product {
+        margin: 6px 0;
+        width: 100%;
+    }
+
+    .text-product {
+        font-size: 0.9rem;
+    }
+
+    .price h4 {
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    /* Ensure containers don't overflow */
+    .promos, main, .sabores, .dedos-y-aros, .antojos, .extras {
+        padding: 0 12px;
+    }
+
+    /* Adjust navigation for mobile */
+    nav {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .burger-menu-bar {
+        padding: 16px;
+        width: 100%;
+    }
+}
+
+/* Container max-widths for larger screens */
+@media (min-width: 769px) {
+    .promos, main, .sabores, .dedos-y-aros, .antojos, .extras {
+        max-width: 1200px;
+    }
+
+    .product {
+        margin: 8px;
     }
 }
