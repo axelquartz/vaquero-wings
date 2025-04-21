@@ -36,12 +36,13 @@ nav ul li, button {
     font-weight: 500;
 }
 
-/* CTA Component - Fixed Layout */
+/* CTA Component - Base Styles */
 .cta {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16px;
+    gap: 16px;
+    padding: 20px max(24px, calc(100vw - 95%));
     background-color: rgba(17, 17, 17, 0.95);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -56,39 +57,47 @@ nav ul li, button {
     box-sizing: border-box;
 }
 
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(184, 146, 101, 0.03) 0%, rgba(17, 17, 17, 0) 100%);
+    pointer-events: none;
+}
+
 .cta-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 16px;
-    width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding: 0;
-}
-
-/* Fix for index.html specific CTA structure */
-.cta a {
-    flex: 1;
-    max-width: 280px;
-    text-decoration: none;
-    margin: 0 8px;
+    padding: 0 24px;
+    width: 100%;
 }
 
 .cta button {
-    width: 100%;
-    padding: 14px 24px;
+    position: relative;
+    min-width: 200px;
+    max-width: 300px;
+    padding: 16px 32px;
     border-radius: 12px;
     border: none;
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     cursor: pointer;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .cta #whatsapp {
@@ -96,39 +105,29 @@ nav ul li, button {
     color: white;
 }
 
+.cta #whatsapp::before {
+    content: "📱";
+    font-size: 1.2rem;
+}
+
 .cta #domicilio {
     background: linear-gradient(135deg, #B89265 0%, #8B6B4A 100%);
     color: white;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .cta {
-        padding: 12px;
-    }
-
-    .cta-container {
-        gap: 12px;
-    }
-
-    .cta a {
-        margin: 0 4px;
-    }
-
-    .cta button {
-        padding: 12px 16px;
-        font-size: 0.9rem;
-        min-width: unset;
-    }
+.cta #domicilio::before {
+    content: "🛵";
+    font-size: 1.2rem;
 }
 
-/* Safe area handling */
-@supports (padding: max(0px)) {
-    .cta {
-        padding-bottom: max(16px, env(safe-area-inset-bottom));
-        padding-left: max(16px, env(safe-area-inset-left));
-        padding-right: max(16px, env(safe-area-inset-right));
-    }
+/* Hover Effects */
+.cta button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta button:active {
+    transform: translateY(-1px);
 }
 
 /* Modern focus states */
@@ -161,29 +160,6 @@ nav ul li, button {
     transform: rotate(45deg) translateX(50%);
 }
 
-/* Loading state */
-.cta button.loading {
-    opacity: 0.8;
-    cursor: wait;
-}
-
-.cta button.loading::after {
-    content: "";
-    width: 20px;
-    height: 20px;
-    border: 2px solid transparent;
-    border-radius: 50%;
-    border-top-color: currentColor;
-    animation: spin 0.8s linear infinite;
-    margin-left: 8px;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 /* Desktop-specific styles */
 @media (min-width: 769px) {
     .cta {
@@ -193,13 +169,10 @@ nav ul li, button {
     .cta button {
         font-size: 1.1rem;
         padding: 18px 36px;
-        min-width: 240px;
-        color: white;
     }
 
     .cta-container {
         gap: 24px;
-        max-width: 600px;
     }
 }
 
@@ -220,6 +193,37 @@ nav ul li, button {
     }
 }
 
+/* Safe area handling */
+@supports (padding: max(0px)) {
+    .cta {
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .cta {
+        padding: 12px;
+    }
+
+    .cta-container {
+        gap: 12px;
+    }
+
+    .cta a {
+        margin: 0 4px;
+    }
+
+    .cta button {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        min-width: unset;
+    }
+}
+
+/* Mobile-specific styles */
 @media (max-width: 768px) { /* MOBILE */
 
     nav {
@@ -233,45 +237,47 @@ nav ul li, button {
     }
 
     .burger-menu-bar {
+        display: flex !important; /* Force display on mobile */
         box-sizing: border-box;
-        display: flex;
         padding: 16px 8px;
         justify-content: space-between;
-        text-decoration: none;
-        list-style-type: none;
+        align-items: center;
         width: 100%;
-        margin: auto;
-        font-size: 16px;
-        font-weight: 600;
+        background-color: #222;
     }
     
+    .burger-menu-bar img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
 
     .burger-menu-bar label {
         display: flex;
         align-items: center;
-        padding: 8px 0px;
-        border: solid 1px rgb(255, 255, 255);
-        text-decoration: none;
-        list-style-type: none;
-        width: 64px;
-        margin: auto;
-        font-size: 16px;
-        font-weight: 600;
-
-        margin-left: 4px;
-        padding-left: 0;
-        text-align: center;
         justify-content: center;
+        cursor: pointer;
     }
 
-    .burger-menu-bar img {
-        width: 160px;
-        padding: 0 16px;
+    .burger-icon {
+        width: 24px;
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
+    .burger-icon .line {
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        display: block;
+    }
 
     .burger-menu {
-        display: none;
+        display: none; /* Hide by default */
         justify-content: center;
         align-items: center;
         padding: 8px 0px;
@@ -285,6 +291,8 @@ nav ul li, button {
 
     #burger-menu-image {
         width: 24px;
+        height: auto;
+        display: block;
     }
     
     .active {
@@ -466,6 +474,10 @@ nav ul li, button {
         color: #B89265;
         padding: 12px 44px;
         border-radius: 8px;
+    }
+
+    .social-button facebook, .social-button instagram, .social-button tiktok {
+        /* width: 100px; */
     }
 }
 
@@ -1074,5 +1086,135 @@ h1, h2 {
 
     .product {
         margin: 8px;
+    }
+}
+
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .burger-menu-bar {
+        /* background-color: #222; */
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .burger-menu-bar label img {
+        height: 40px;
+        width: auto;
+    }
+
+    /* Hide the old burger menu image */
+    /* #burger-menu-image {
+        display: none;
+    } */
+
+    /* Ensure burger icon is visible on mobile */
+    /* .burger-icon {
+        display: flex;
+    }
+
+    .burger-icon .line {
+        display: block;
+        background-color: #ffffff;
+    } */
+}
+
+/* Hide burger on desktop */
+@media (min-width: 769px) {
+    .burger-icon {
+        display: none;
+    }
+}
+
+/* Active state animations */
+.burger-menu.active + .burger-icon .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.active + .burger-icon .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active + .burger-icon .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.burger-menu-bar {
+    box-sizing: border-box;
+    display: flex;
+    padding: 16px 8px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #222;
+}
+
+.burger-menu-bar label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#burger-menu-image {
+    width: 24px;
+    height: auto;
+    display: block;
+}
+
+/* Hide burger menu elements on desktop */
+@media (min-width: 769px) { /* Desktop */
+    .burger-menu-bar label,
+    .burger-menu-bar #burger-menu-image,
+    .burger-menu {
+        display: none !important; /* Ensure it's hidden on desktop */
+    }
+}
+
+/* Show burger menu elements only on mobile */
+@media (max-width: 768px) { /* Mobile */
+    .burger-menu-bar label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    #burger-menu-image {
+        width: 24px;
+        height: auto;
+        display: block;
+    }
+
+    .burger-menu-bar {
+        box-sizing: border-box;
+        display: flex;
+        padding: 16px 8px;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background-color: #222;
+    }
+}
+
+/* Desktop styles - hide burger-menu-bar */
+@media (min-width: 769px) {
+    .burger-menu-bar {
+        display: none !important;
+    }
+}
+
+/* Mobile styles - show burger-menu-bar */
+@media (max-width: 768px) {
+    .burger-menu-bar {
+        display: flex;
+        box-sizing: border-box;
+        padding: 16px 8px;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background-color: #222;
     }
 }
