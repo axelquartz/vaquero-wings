@@ -6,6 +6,10 @@
     --spacing-unit: 2rem;
 }
 
+body {
+    font-family: 'Kanit', sans-serif;
+}
+
 /* Hero Section - Matching about page style */
 .contact-hero {
     text-align: center;
@@ -27,15 +31,17 @@
     color: var(--primary-color);
     max-width: 600px;
     line-height: 1.2;
+    font-family: 'Kanit', sans-serif;
 }
 
 .contact-hero .hero-subtitle {
     font-size: 1.4rem;
-    font-weight: 300;
+    font-weight: 200;
     color: var(--text-color);
     max-width: 500px;
     line-height: 1.4;
     margin: 0 auto;
+    font-family: 'Kanit', sans-serif;
 }
 
 /* Responsive Design for Hero */
@@ -99,17 +105,23 @@
 .contact-card h2 {
     color: #B89265;
     margin-bottom: 20px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
 }
 
 .contact-card .highlight {
     color: #f4f4f4;
     font-size: 1.1em;
     margin-bottom: 15px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
 }
 
 .contact-card p {
     margin-bottom: 10px;
     color: #f4f4f4;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
 }
 
 .map-section {
@@ -151,8 +163,9 @@
     border-radius: 8px;
     text-decoration: none;
     color: #fff;
-    font-weight: 600;
+    font-weight: 500;
     transition: transform 0.2s;
+    font-family: 'Kanit', sans-serif;
 }
 
 .social-button:hover {
@@ -182,7 +195,7 @@
     }
 
     .map-container {
-        height: 300px;
+        height: 600px;
     }
 }
 

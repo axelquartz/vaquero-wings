@@ -1,6 +1,8 @@
-const burgerButton = document.querySelector('.burger-menu-bar label');
-const burgerMenu = document.querySelector('.burger-menu');
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerMenuButton = document.querySelector('.burger-menu-bar label');
+    const burgerMenu = document.querySelector('.burger-menu');
 
-burgerButton.addEventListener('click', () => {
-    burgerMenu.classList.toggle('active');
+    burgerMenuButton.addEventListener('click', function() {
+        burgerMenu.classList.toggle('active');
+    });
 });
